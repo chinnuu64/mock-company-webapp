@@ -21,9 +21,10 @@ jobs:
 
       - name: Install Jenkinsfile Runner
         run: |
-            curl -L -o jenkinsfile-runner.tar.gz https://github.com/jenkinsci/jenkinsfile-runner/releases/download/1.0-beta-29/jenkinsfile-runner.tar.gz
+            curl -L -o jenkinsfile-runner.tar.gz https://github.com/jenkinsci/jenkinsfile-runner/releases/download/1.0-beta-28/jenkinsfile-runner.tar.gz
             mkdir jenkinsfile-runner
             tar -xzf jenkinsfile-runner.tar.gz -C jenkinsfile-runner
+
 
 
 
