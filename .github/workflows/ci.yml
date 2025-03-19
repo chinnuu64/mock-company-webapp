@@ -19,13 +19,11 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
 
-      - name: Install Jenkinsfile Runner
+      - name: Install Jenkinsfile Runner using GitHub Packages
         run: |
-            curl -L -o jenkinsfile-runner.tar.gz https://github.com/jenkinsci/jenkinsfile-runner/releases/download/1.0-beta-28/jenkinsfile-runner.tar.gz
-            mkdir jenkinsfile-runner
-            tar -xzf jenkinsfile-runner.tar.gz -C jenkinsfile-runner
-
-
+          mkdir jenkinsfile-runner
+          wget https://repo.jenkins-ci.org/releases/io/jenkins/jenkinsfile-runner/1.0-beta-29/jenkinsfile-runner-1.0-beta-29.zip
+          unzip jenkinsfile-runner-1.0-beta-29.zip -d jenkinsfile-runner
 
 
       - name: Run Jenkinsfile
