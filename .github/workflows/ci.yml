@@ -17,5 +17,5 @@ jobs:
         run: |
           docker run --rm \
             -v $(pwd):/workspace -w /workspace \
-            ghcr.io/jenkinsci/jenkinsfile-runner:master \
-            -f /workspace/Jenkinsfile
+            ghcr.io/jenkinsci/jenkinsfile-runner:master run \
+            --file /workspace/Jenkinsfile
