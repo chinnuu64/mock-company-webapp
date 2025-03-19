@@ -18,7 +18,8 @@ jobs:
         run: |
           docker run --rm \
             -v $(pwd):/workspace -w /workspace \
-            jenkins/jenkinsfile-runner:jdk17 \
+            ghcr.io/jenkinsci/jenkinsfile-runner:master \
             --file /workspace/Jenkinsfile
+
 
 
