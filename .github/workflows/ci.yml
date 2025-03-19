@@ -19,13 +19,10 @@ jobs:
     
       - name: Checkout Code
         uses: actions/checkout@v3  
-
       - name: Run Jenkinsfile Runner in Docker with Java 17
         run: |
           docker run --rm \
             -v $(pwd):/workspace -w /workspace \
-            ghcr.io/jenkinsci/jenkinsfile-runner:master \
-            --file /workspace/Jenkinsfile
-
+            ghcr.io/jenkinsci/jenkinsfile-runner:master run
 
 
