@@ -25,7 +25,6 @@ jobs:
           mkdir jenkinsfile-runner
           unzip jenkinsfile-runner.zip -d jenkinsfile-runner
 
-
       - name: Run Jenkinsfile  # Step 4: Run the Jenkins pipeline
         run: |
           ./jenkinsfile-runner/bin/jenkinsfile-runner -w ./jenkinsfile-runner -p ./jenkinsfile-runner/plugins -f Jenkinsfile
