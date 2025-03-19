@@ -10,3 +10,5 @@ src/main/webapp
 .idea
 .DS_Store
 
+jenkinsfile-runner.tar.gz
+jenkinsfile-runner.zip
