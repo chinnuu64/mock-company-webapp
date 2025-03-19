@@ -19,11 +19,12 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
 
-      - name: Install Jenkinsfile Runner  # Step 3: Install Jenkinsfile Runner
+      - name: Install Jenkinsfile Runner
         run: |
-          curl -L -o jenkinsfile-runner.tar.gz https://github.com/jenkinsci/jenkinsfile-runner/releases/latest/download/jenkinsfile-runner.tar.gz
+          curl -L -o jenkinsfile-runner.zip https://github.com/jenkinsci/jenkinsfile-runner/releases/latest/download/jenkinsfile-runner.zip
           mkdir jenkinsfile-runner
-          tar -xzf jenkinsfile-runner.tar.gz -C jenkinsfile-runner
+          unzip jenkinsfile-runner.zip -d jenkinsfile-runner
+
 
       - name: Run Jenkinsfile  # Step 4: Run the Jenkins pipeline
         run: |
