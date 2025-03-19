@@ -21,11 +21,10 @@ jobs:
 
       - name: Install Jenkinsfile Runner using GitHub Packages
         run: |
+          wget https://github.com/jenkinsci/jenkinsfile-runner/releases/download/1.0-beta-28/jenkinsfile-runner.tar.gz
           mkdir jenkinsfile-runner
-          wget https://repo.jenkins-ci.org/releases/io/jenkins/jenkinsfile-runner/1.0-beta-29/jenkinsfile-runner-1.0-beta-29.zip
-          unzip jenkinsfile-runner-1.0-beta-29.zip -d jenkinsfile-runner
+          tar -xzf jenkinsfile-runner.tar.gz -C jenkinsfile-runner
 
-
-      - name: Run Jenkinsfile
+      - name: Run Jenkinsfile Runner in Docker
         run: |
-          ./jenkinsfile-runner/bin/jenkinsfile-runner -w ./jenkinsfile-runner -p ./jenkinsfile-runner/plugins -f Jenkinsfile
+          docker run --rm -v $(pwd):/workspace -w /workspace jenkinsci/jenkinsfile-runner:latest -p . -f Jenkinsfile
