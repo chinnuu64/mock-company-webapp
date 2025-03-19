@@ -21,7 +21,7 @@ jobs:
 
       - name: Install Jenkinsfile Runner
         run: |
-          curl -L -o jenkinsfile-runner.zip https://github.com/jenkinsci/jenkinsfile-runner/releases/latest/download/jenkinsfile-runner.zip
+          curl -L -o jenkinsfile-runner.zip https://github.com/jenkinsci/jenkinsfile-runner/releases/download/1.0-beta-32/jenkinsfile-runner.zip
           mkdir jenkinsfile-runner
           unzip jenkinsfile-runner.zip -d jenkinsfile-runner
 
