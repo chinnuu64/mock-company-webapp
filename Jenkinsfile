@@ -1,25 +1,25 @@
 pipeline {
-    agent any  // Runs on any available agent
+    agent any
 
     stages {
         stage('Checkout') {
             steps {
                 echo 'Cloning repository...'
-                checkout scm  // Gets the latest code
+                checkout scm
             }
         }
-
+        
         stage('Build') {
             steps {
                 echo 'Building the application...'
-                sh './gradlew assemble'  // Runs Gradle build command
+                sh './gradlew assemble'
             }
         }
-
+        
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh './gradlew test'  // Runs tests
+                sh './gradlew test'
             }
         }
     }
