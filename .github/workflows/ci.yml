@@ -24,14 +24,17 @@ jobs:
           sudo apt update
           sudo apt install -y nodejs npm
 
-      - name: Run Jenkinsfile Runner with Node.js & Java
+      - name: Run Jenkinsfile Runner with Node.js & Java (Fixed npm Permissions)
         run: |
           docker run --rm \
             -e JAVA_HOME=/opt/java/openjdk \
             -e PATH="/opt/java/openjdk/bin:$PATH:/usr/bin" \
             -v $(pwd):/workspace -w /workspace \
             cimg/node:18.16-browsers bash -c "
-            npm install -g yarn && \
-            yarn install && \
+            mkdir -p ~/.npm-global && \
+            npm config set prefix '~/.npm-global' && \
+            export PATH=~/.npm-global/bin:$PATH && \
+            npm install yarn && \
+            npx yarn install && \
             ghcr.io/jenkinsci/jenkinsfile-runner:master"
 
