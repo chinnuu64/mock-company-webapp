@@ -2,34 +2,22 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Checkout Code') {
             steps {
-                echo 'Cloning repository...'
-                checkout scm
+                git 'https://github.com/YOUR-GITHUB-USERNAME/mock-company-webapp.git'
             }
         }
-        
+
         stage('Build') {
             steps {
-                echo 'Building the application...'
                 sh './gradlew assemble'
             }
         }
-        
+
         stage('Test') {
             steps {
-                echo 'Running tests...'
                 sh './gradlew test'
             }
-        }
-    }
-
-    post {
-        success {
-            echo '✅ Build and tests passed successfully!'
-        }
-        failure {
-            echo '❌ Build or tests failed. Please check logs.'
         }
     }
 }
